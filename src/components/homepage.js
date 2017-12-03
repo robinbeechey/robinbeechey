@@ -5,6 +5,59 @@ import Hero from './Home/Hero';
 import { Carousel } from 'react-responsive-carousel';
 
 
+const Scroller = ({projects}) => {
+
+    return (
+        <div className="scroller">
+            <div className="project-column-wrapper is-mobile columns is-variable">
+                {
+                    projects.map((project, index)=> {
+                        return (
+                            <div className="column project is-half" key={index}>
+                                <div className="info-wrapper">
+                                    <div className="project-border">
+                                        <div className="img-wrapper">
+                                            <img className="dev-image" src={project.image && project.image.url}/>
+                                        </div>
+                                        <div className="info">
+                                            {project.title &&
+                                            <div className="title">
+                                                <h2><a href={project.siteurl && project.siteurl.url}
+                                                       target="_blank">{RichText.asText(project.title)}</a></h2>
+                                                { project.codeurl && project.codeurl.url ?
+                                                    <a href={project.codeurl && project.codeurl.url} target="_blank"
+                                                       className="circle"><i className="fa fa-code"
+                                                                             aria-hidden="true"></i></a> : null}
+
+                                            </div>}
+
+                                            {project.stack &&
+                                            <div className="stack"><p>{RichText.asText(project.stack)}</p>
+                                            </div> }
+                                            {project.description && RichText.render(project.description)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </div>
+    );
+};
+
+const TitleHeader = (props) => {
+    return (
+        <div className={`title-wrapper ${props.type}`}>
+            <div className="text-content">
+                {props.children}
+            </div>
+        </div>
+    )
+};
+
+
 class Homepage extends React.Component {
 
     circleClick(height) {
@@ -29,8 +82,11 @@ class Homepage extends React.Component {
                                 <div className="title">
                                     <h2><a href={project.siteurl && project.siteurl.url}
                                            target="_blank">{RichText.asText(project.title)}</a></h2>
-                                    <a href={project.siteurl && project.siteurl.url} target="_blank"
-                                       className="circle"/>
+                                    { project.codeurl && project.codeurl.url ?
+                                        <a href={project.codeurl && project.codeurl.url} target="_blank"
+                                           className="circle"><i className="fa fa-code"
+                                                                 aria-hidden="true"></i></a> : null}
+
                                 </div>}
 
                                 {project.techstack &&
@@ -39,9 +95,8 @@ class Homepage extends React.Component {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
+
             )
         })
     }
@@ -74,9 +129,10 @@ class Homepage extends React.Component {
     render() {
         let page = this.props.content.data;
 
-        if (process.env.NODE_ENV !== 'production'){
-          console.log(page);
-        };
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(page);
+        }
+        ;
 
         let video = (
             <video id="background-video" loop autoPlay muted>
@@ -101,56 +157,55 @@ class Homepage extends React.Component {
                 <div ref="devSection" id="dev-section" className="dev-container section">
                     <div className="scroll-target half-circle"></div>
                     <div className="container">
-                        <div className="header columns">
+                        <div className="columns">
                             <div className="column is-half is-offset-one-quarter">
-                                <div className="circle-title-wrapper dev">
-                                    <div className="text-content">
-                                        <h1>Dev</h1>
-                                        <p className="">I have experience as a full stack developer but I focus
-                                            on
-                                            front-end and use firebase with cloud functions as a
-                                            backend</p>
-                                    </div>
-                                </div>
+
+                                <TitleHeader type="dev">
+                                    <h1>Dev</h1>
+                                    <p className="">I have experience as a full stack developer but I focus
+                                        on
+                                        front-end and use firebase with cloud functions as a
+                                        backend</p>
+                                </TitleHeader>
                             </div>
                         </div>
-                        <div className="dev-column-wrapper is-mobile columns is-variable">
-                            {this.renderDevProjects()}
-                        </div>
+                        <Scroller projects={this.props.content.data.dev}/>
                     </div>
                 </div>
 
                 <div ref="designSection" id="design-section" className="section">
                     <div className="container design-container">
                         <div className="columns">
-                            <div className="column">
-                                <div className="circle-title-wrapper design">
+                            <div className="column is-half is-offset-one-quarter">
+                                <TitleHeader type="design">
                                     <div className="text-content">
                                         <h1>Design</h1>
                                         <p className="">I do web design, print design and sometimes make some digital
                                             art
                                             with the same tools</p>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <div className="image-rotation-wrapper">
-                                    <div className="design-image"
-                                         style={{backgroundImage: `url(${page.misc_images && page.misc_images.url})`}}></div>
-                                </div>
+                                </TitleHeader>
                             </div>
                         </div>
+
+                        <Scroller projects={this.props.content.data.design}/>
+
                         <div className="columns is-full usefull-links">
                             <div className="column">
                                 <h5>Useful Links</h5>
                                 <ul>
                                     <li><a href="http://www.vanschneider.com/colors" target="_blank">Color Claim</a> by
-                                         Tobias van Schneider</li>
-                                    <li><a href="http://lea.verou.me/css3patterns/" target="_blank">CSS3 Patterns Gallery</a> by Lea Verou
+                                        Tobias van Schneider
                                     </li>
-                                    <li><a href="http://trademarksandsymbols.com/" target="_blank">Trade Marks & Symbols</a> by Yasaburo Kuwayama
+                                    <li><a href="http://lea.verou.me/css3patterns/" target="_blank">CSS3 Patterns
+                                        Gallery</a> by Lea Verou
                                     </li>
-                                    <li><a href="http://pierrickcalvez.com/journal/a-five-minutes-guide-to-better-typography" target="_blank">A Five Minute Guide to Better Typography</a> by Pierrick Calvez
+                                    <li><a href="http://trademarksandsymbols.com/" target="_blank">Trade Marks &
+                                        Symbols</a> by Yasaburo Kuwayama
+                                    </li>
+                                    <li><a
+                                        href="http://pierrickcalvez.com/journal/a-five-minutes-guide-to-better-typography"
+                                        target="_blank">A Five Minute Guide to Better Typography</a> by Pierrick Calvez
                                     </li>
 
                                 </ul>
@@ -162,12 +217,13 @@ class Homepage extends React.Component {
                     <div className="container">
                         <div className="columns misc-wrapper">
                             <div className="column">
-                                <div className="circle-title-wrapper misc">
+                                <TitleHeader type="misc">
                                     <div className="text-content">
                                         <h1>Misc</h1>
-                                        <p className="">Filming, editing and animation { this.mobileCheck() ? '(View on desktop to see the reel)' : ''}</p>
+                                        <p className="">Filming, editing and
+                                            animation { this.mobileCheck() ? '(View on desktop to see the reel)' : ''}</p>
                                     </div>
-                                </div>
+                                </TitleHeader>
                                 {misc}
                             </div>
 

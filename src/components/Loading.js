@@ -13,8 +13,6 @@ class Loading extends Component {
         return (
             <div ref="stripes" className="diagonal-stripes">
             </div>
-
-
         );
     }
 }

@@ -153,10 +153,83 @@ body::-webkit-scrollbar-thumb {
   //outline: 1px solid slategrey;
 }
 
+.project-column-wrapper::-webkit-scrollbar {
+  width: 1em;
+}
+
+.project-column-wrapper::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.project-column-wrapper::-webkit-scrollbar-thumb {
+  background-color: $background-color-4;
+  //outline: 1px solid slategrey;
+}
+
 .chevron-pattern {
   background: linear-gradient(135deg, #fafafa 25%, transparent 25%) -50px 0, linear-gradient(225deg, #fafafa 25%, transparent 25%) -50px 0, linear-gradient(315deg, #fafafa 25%, transparent 25%), linear-gradient(45deg, #fafafa 25%, transparent 25%);
   background-size: 100px 100px;
   background-color: #363636;
+}
+
+
+.scroller{
+
+  .project {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    display: inline;
+    margin-bottom: 0;
+    float: left;
+    h2 {
+      display: inline;
+    }
+    a {
+      color: $background-color-4;
+    }
+    a:hover {
+      color: $base-grey;
+    }
+  }
+
+  .project-column-wrapper {
+    //flex-wrap: wrap;
+    overflow-x: scroll;
+    background-color: rgba(51, 173, 155, 0.08);
+    padding-top: 21px;
+
+
+  }
+
+  .info-wrapper {
+    padding: 0px 28px;
+    max-width: 477px;
+    .img-wrapper {
+      line-height: 0;
+    }
+    .project-border {
+      //border: solid rgba(51, 173, 155, 0.31) 2px;
+      border-radius: 9px;
+      background-color: white;
+      //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    .info {
+      min-height: 180px;
+      padding: 16px 11px 2px 11px;
+      //background-color: rgba(228, 255, 255, 0.86);
+      background: repeating-linear-gradient(48deg, rgba(181, 181, 181, 0.13), rgba(181, 181, 181, 0.13) 30px, #fafafa 10px, #fafafa 60px);
+      border-bottom: white solid 11px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    .stack {
+      clear: both;
+      font-weight: bold;
+    }
+  }
+
 }
 
 #dev-section {
@@ -166,10 +239,10 @@ body::-webkit-scrollbar-thumb {
   .dev-image {
     //max-width: 300px;
   }
-  .header {
-    text-align: center;
-    margin-bottom: 65px;
-  }
+  //.header {
+  //  text-align: center;
+  //  margin-bottom: 65px;
+  //}
   .dev-project {
     margin-bottom: 20px;
   }
@@ -225,7 +298,7 @@ body::-webkit-scrollbar-thumb {
 
 #misc-section {
   min-height: 100vh;
-  background: linear-gradient(135deg,#f7f7f7 25%,transparent 0) -50px 0,linear-gradient(225deg,#f7f7f7 25%,transparent 0) -50px 0,linear-gradient(315deg,#f7f7f7 25%,transparent 0),linear-gradient(45deg,#f7f7f7 25%,transparent 0);
+  background: linear-gradient(135deg,#f7f7f7 25%,transparent 0) -50px 0, linear-gradient(225deg,#f7f7f7 25%,transparent 0) -50px 0, linear-gradient(315deg, #f7f7f7 25%, transparent 0), linear-gradient(45deg, #f7f7f7 25%, transparent 0);
   background-size: 100px 100px;
   background-color: #363636;
 
@@ -243,7 +316,17 @@ body::-webkit-scrollbar-thumb {
   .dev-column-wrapper {
     overflow-x: scroll !important;
   }
+
+  .project-column-wrapper {
+    overflow-x: scroll !important;
+  }
+
   .dev-project {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .project {
     flex: none !important;
     width: 100% !important;
   }
@@ -254,7 +337,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 //CIRCLE TITLE
-.circle-title-wrapper {
+.title-wrapper {
   max-width: 275px;
   height: 275px;
   padding: 28px;
@@ -262,10 +345,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 65px;
   &.dev {
 
     .text-content {
-      top: 11px;
+      top: 23px;
       position: relative;
     }
 
@@ -279,11 +363,9 @@ body::-webkit-scrollbar-thumb {
     }
   }
   &.design {
-    position: relative;
-    top: 16%;
     border-radius: 0;
     .text-content {
-      top: 34px;
+      top: 18px;
       position: relative;
     }
   }
@@ -341,7 +423,7 @@ $position-wat: -1703px -725px;
 }
 
 .carousel .thumbs-wrapper {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 //ANIMATE MISC IMAGES SLIDING THING
@@ -441,10 +523,21 @@ $position-wat: -1703px -725px;
 .circle {
   float: right;
   margin-left: 12px;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
+  top: 6px;
+  position: relative;
   border-radius: 50%;
   background-color: #2b2b2b;
+  i{
+    font-size: 18px;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+  }
+  i:hover{
+    color: white;
+  }
 }
 
 //HALF CIRCLE THING
