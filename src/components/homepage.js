@@ -66,41 +66,6 @@ class Homepage extends React.Component {
         window.scrollTo({top: height + addedHeight, behavior: 'smooth'});
     }
 
-    renderDevProjects() {
-        let devProjects = this.props.content.data.dev;
-
-        return devProjects.map((project, index)=> {
-            return (
-                <div className="column dev-project is-half" key={index}>
-                    <div className="info-wrapper">
-                        <div className="dev-border">
-                            <div className="img-wrapper">
-                                <img className="dev-image" src={project.screen && project.screen.url}/>
-                            </div>
-                            <div className="info">
-                                {project.title &&
-                                <div className="title">
-                                    <h2><a href={project.siteurl && project.siteurl.url}
-                                           target="_blank">{RichText.asText(project.title)}</a></h2>
-                                    { project.codeurl && project.codeurl.url ?
-                                        <a href={project.codeurl && project.codeurl.url} target="_blank"
-                                           className="circle"><i className="fa fa-code"
-                                                                 aria-hidden="true"></i></a> : null}
-
-                                </div>}
-
-                                {project.techstack &&
-                                <div className="tech-stack"><p>{RichText.asText(project.techstack)}</p></div> }
-                                {project.description && RichText.render(project.description)}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            )
-        })
-    }
-
     mobileCheck() {
         let check = false;
         (function (a) {
