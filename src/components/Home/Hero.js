@@ -61,13 +61,13 @@ const STYLES = [
 ];
 
 class Hero extends Component {
+
     componentDidMount() {
-        let linksDiv = document.getElementById('links');
+        const linksDiv = document.getElementById('links');
         let height = linksDiv.clientHeight;
         let logoWrapper = this.refs.logoWrapper;
         logoWrapper.style.marginTop = -height + 'px';
         setTimeout(this.loopHome.bind(this), 3000);
-        window.LINKS = this.refs.links.children;
     }
 
 
@@ -107,9 +107,6 @@ class Hero extends Component {
 
     render() {
 
-        let page = this.props.page;
-
-
         return (
             <section ref="home" id="home" className="hero is-fullheight">
                 <div id="links" ref="linksWrapper" className="section links-wrapper">
@@ -130,7 +127,8 @@ class Hero extends Component {
                                aria-hidden="true"/>
                         </div>
                         <div className="column">
-                            <a href="mailto:robinbeechey@gmail.com" className="fa fa-envelope-o"
+                            <a target="_blank" href="https://dribbble.com/rubinito"
+                               className="fa fa-dribbble"
                                aria-hidden="true"/>
                         </div>
                         <div className="column">
@@ -139,10 +137,16 @@ class Hero extends Component {
                                aria-hidden="true"/>
                         </div>
                         <div className="column">
+                            <a href="mailto:robinbeechey@gmail.com" className="fa fa-envelope-o"
+                               aria-hidden="true"/>
+                        </div>
+                        <div className="column">
                             <a target="_blank" href="http://rbcreative.storenvy.com/"
                                className="fa fa-shopping-cart"
                                aria-hidden="true"/>
                         </div>
+
+
                     </div>
                 </div>
                 <div className="hero-body">
@@ -215,7 +219,8 @@ class Hero extends Component {
                             </g>
                         </svg>
                         <div className="container">
-                            <p><strong>Web Dev / Graphic Design / and Artistic Explorations</strong><br/>Personal Projects</p>
+                            <p><strong>Web Dev / Graphic Design / and Artistic Explorations</strong><br/>Personal
+                                Projects</p>
                         </div>
                         <div onClick={this.handlePress.bind(this)} className="circle-down-animated"></div>
                     </div>
