@@ -4,7 +4,6 @@ import Layout from "./_layout";
 import Hero from './Home/Hero';
 import { Carousel } from 'react-responsive-carousel';
 
-
 const Scroller = ({projects}) => {
 
     return (
@@ -119,8 +118,18 @@ class Homepage extends React.Component {
             <div>
                 <Hero page={page} circleClick={this.circleClick.bind(this)}/>
 
-                <div ref="devSection" id="dev-section" className="dev-container section">
+
+                <div id="about-me-section" className="about-me-container section">
                     <div className="scroll-target half-circle"></div>
+                    <div className="columns">
+                        <div className="column is-half is-offset-one-quarter">
+                            <div className="about-me"><h1>About Me</h1><p>{page.about_me[0].text}</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ref="devSection" id="dev-section" className="dev-container section">
+
                     <div className="container">
                         <div className="columns">
                             <div className="column is-half is-offset-one-quarter">
@@ -134,7 +143,7 @@ class Homepage extends React.Component {
                                 </TitleHeader>
                             </div>
                         </div>
-                        <Scroller projects={this.props.content.data.dev}/>
+                        <Scroller projects={page.dev}/>
                     </div>
                 </div>
 
@@ -153,7 +162,7 @@ class Homepage extends React.Component {
                             </div>
                         </div>
 
-                        <Scroller projects={this.props.content.data.design}/>
+                        <Scroller projects={page.design}/>
 
                         <div className="columns is-full usefull-links">
                             <div className="column">
@@ -195,8 +204,6 @@ class Homepage extends React.Component {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         )
     }

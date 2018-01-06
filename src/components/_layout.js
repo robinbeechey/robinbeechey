@@ -29,13 +29,16 @@ class Layout extends React.Component {
 
     render() {
 
-        return <div>
-            <div className={`section ${this.props.className}`} id={this.props.id}>
-                <div className="container">
-                    {this.props.children}
+        return (
+            <div>
+                <div className={`section ${this.props.className}`} id={this.props.id}>
+                    <div className="container">
+                        {this.props.children}
+
+                    </div>
                 </div>
-            </div>
-        </div>;
+
+            </div>);
     }
 }
 

@@ -26,8 +26,8 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
             <div>
                 <Route exact path={'/'} render={() => {
-          return <Wrapper match={{params: {type: 'homepage'}}}/>
-        }}/>
+                  return <Wrapper match={{params: {type: 'homepage'}}}/>
+                }}/>
                 <Route exact path={'/loading'} component={Loading}/>
                 <Route exact path={'/:type'} component={Wrapper}/>
                 <Route exact path={'/:type/:uid'} component={Wrapper}/>

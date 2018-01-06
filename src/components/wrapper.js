@@ -9,6 +9,7 @@ import {
     getFormattedContent, getOrderedContent, getTypeByUID, getTypeContent, getTypeFormat,
     getTypePage
 } from "../selectors/content";
+import Loading from '../components/Loading';
 
 const getComponent = (type, index) => {
     if (index) {
@@ -65,7 +66,7 @@ class Wrapper extends React.Component {
     render() {
         if (this.props.fetching === true && !this.props.content) {
             return (
-                    <div className="diagonal-stripes"></div>
+                    <Loading/>
             );
         }
 
