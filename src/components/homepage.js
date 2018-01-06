@@ -123,7 +123,7 @@ class Homepage extends React.Component {
                     <div className="scroll-target half-circle"></div>
                     <div className="columns">
                         <div className="column is-half is-offset-one-quarter">
-                            <div className="about-me"><h1>About Me</h1><p>{page.about_me[0].text}</p></div>
+                            <div><h1>About Me</h1><p>{page.about_me[0].text}</p></div>
                         </div>
                     </div>
                 </div>

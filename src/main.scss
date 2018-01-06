@@ -234,8 +234,12 @@ body::-webkit-scrollbar-thumb {
 
 #about-me-section{
   background-color: $light-grey;
-  .about-me{
-    padding: 25px 0 25px 0;
+
+  .column{
+    margin-top: 70px;
+  }
+  p{
+    font-size: 16px;
   }
 }
 
