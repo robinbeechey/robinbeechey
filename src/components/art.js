@@ -8,6 +8,7 @@ class Art extends Component {
 
     }
 
+
     render() {
         let page = this.props.content.data;
 
