@@ -56,8 +56,7 @@ class Wrapper extends React.Component {
             content.map((page) => {
                 props.dispatch(contentLoaded(page, page.type, page.uid));
             });
-        }
-        else {
+        } else {
 
             props.dispatch(contentLoaded(content, content.type, content.uid));
         }
@@ -66,7 +65,7 @@ class Wrapper extends React.Component {
     render() {
         if (this.props.fetching === true && !this.props.content) {
             return (
-                    <Loading/>
+                <Loading/>
             );
         }
 

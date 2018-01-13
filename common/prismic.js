@@ -63,12 +63,12 @@ export const getContent = async (type, uid, page) => {
   const api = await getApi();
 
   if (!type && !uid) {
-
     let content = await getContent('homepage');
     return content
   }
 
   if (uid) {
+
     const page = await api.getByUID(type, uid);
     if (page) {
       return page;
@@ -78,6 +78,7 @@ export const getContent = async (type, uid, page) => {
     }
   }
   else {
+
     let options = getTypeOptions(type);
     if (page) {
       options.page = page;

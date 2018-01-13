@@ -7,7 +7,7 @@ $home-color-yellow: #F0CF61;
 $home-color-orange: #F03F35;
 $home-color-pink: #FFEFE5;
 $home-color-blue: #19AAD1;
-$base-grey: #2d2d2d;
+$base-grey: #9b9b9b;
 $font-base-grey: #363636;
 $home-color-light-blue: #b7e3e4;
 $home-color-magic-blue: #19a5ff;
@@ -172,8 +172,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #363636;
 }
 
-
-.scroller{
+.scroller {
 
   .project {
     margin-bottom: 20px;
@@ -199,7 +198,6 @@ body::-webkit-scrollbar-thumb {
     overflow-x: scroll;
     background-color: rgba(51, 173, 155, 0.08);
     padding-top: 21px;
-
 
   }
 
@@ -232,15 +230,43 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-#about-me-section{
+#about-me-section {
   background-color: $light-grey;
 
-  .column{
+  .column {
     margin-top: 70px;
   }
-  p{
+  p {
     font-size: 16px;
   }
+}
+
+
+//art page
+.art-hero {
+
+  .hero-two {
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+
+  .art-title {
+    position: absolute;
+    top: 66%;
+    left: 55%;
+    .art-title-text {
+      font-size: 92px;
+      margin-bottom: -20px;
+      margin-left: -4px;
+      font-weight: bold;
+    }
+    .me {
+      color: #9B9B9B;
+      font-weight: 400;
+    }
+  }
+
 }
 
 #dev-section {
@@ -503,6 +529,21 @@ $position-wat: -1703px -725px;
   .fixed-side {
     right: 20px !important;
   }
+
+  .art-hero {
+    .art-title {
+      top: 80%;
+      left: 46%;
+      .art-title-text {
+        font-size: 50px;
+      }
+      .me {
+        font-size: 18px;
+        margin-top: 3px;
+        margin-left: -2px;
+      }
+    }
+  }
 }
 
 //CIRCLE BACKGROUND
@@ -540,13 +581,13 @@ $position-wat: -1703px -725px;
   position: relative;
   border-radius: 50%;
   background-color: #2b2b2b;
-  i{
+  i {
     font-size: 18px;
     position: absolute;
     top: 4px;
     left: 3px;
   }
-  i:hover{
+  i:hover {
     color: white;
   }
 }

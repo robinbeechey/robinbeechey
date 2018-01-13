@@ -11,7 +11,9 @@ import {Route} from "react-router";
 import {loadSettings} from "../common/prismic";
 import "font-awesome-sass-loader";
 import ReactGA from 'react-ga';
+import Art from './components/Art';
 import 'style-loader!css-loader!react-responsive-carousel/lib/styles/carousel.css';
+
 
 ReactGA.initialize('UA-60508050-1');
 
@@ -28,7 +30,9 @@ ReactDOM.render(
                 <Route exact path={'/'} render={() => {
                   return <Wrapper match={{params: {type: 'homepage'}}}/>
                 }}/>
-                <Route exact path={'/loading'} component={Loading}/>
+                <Route exact path={'/'} render={() => {
+                  return <Wrapper match={{params: {type: 'art'}}}/>
+                }}/>
                 <Route exact path={'/:type'} component={Wrapper}/>
                 <Route exact path={'/:type/:uid'} component={Wrapper}/>
             </div>
