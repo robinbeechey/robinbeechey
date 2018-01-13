@@ -137,7 +137,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: $background-color-4;
-  //outline: 1px solid slategrey;
 }
 
 .dev-column-wrapper::-webkit-scrollbar {
@@ -241,6 +240,24 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+//hire me
+
+#hire-me {
+  text-align: center;
+  padding-top: 125px;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 400px;
+  padding-right: 20px;
+  padding-left: 20px;
+  h2 {
+    color: $home-color-magic-blue;
+    margin-bottom: 22px;
+  }
+  .msg-button {
+    color: $home-color-magic-blue;
+  }
+}
 
 //art page
 .art-hero {
@@ -251,7 +268,7 @@ body::-webkit-scrollbar-thumb {
     top: 0;
   }
 
-  .art-title {
+  .art-header {
     position: absolute;
     top: 66%;
     left: 55%;
@@ -267,6 +284,35 @@ body::-webkit-scrollbar-thumb {
     }
   }
 
+}
+
+.art-showcase {
+  .art-title {
+    text-align: center;
+    margin-top: 150px;
+    height: 200px;
+    a {
+      color: $home-color-magic-blue;
+    }
+    i {
+      font-size: 18px;
+    }
+  }
+
+  .showcase {
+    .little-line {
+      width: 100%;
+      height: 4px;
+      background-color: #FDE3F3;
+    }
+  }
+  .showcase-info {
+    .person {
+      font-weight: bold;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+  }
 }
 
 #dev-section {
@@ -463,64 +509,9 @@ $position-wat: -1703px -725px;
   margin: 0 !important;
 }
 
-//ANIMATE MISC IMAGES SLIDING THING
+//MEDIA SMALLER THAN 780PX
 
-@keyframes animate-this {
-  0% {
-    background-position: $position-booklet;
-  }
-  7% {
-    background-position: $position-betty;
-  }
-  14% {
-    background-position: $position-betty;
-  }
-  21% {
-    background-position: $position-djnm;
-  }
-  28% {
-    background-position: $position-djnm;
-  }
-  35% {
-    background-position: $position-rat;
-  }
-  42% {
-    background-position: $position-rat;
-  }
-  49% {
-    background-position: $position-ships;
-  }
-  56% {
-    background-position: $position-ships;
-  }
-  63% {
-    background-position: $position-snow;
-  }
-  70% {
-    background-position: $position-snow;
-  }
-  77% {
-    background-position: $position-wat;
-  }
-  84% {
-    background-position: $position-wat;
-  }
-  100% {
-    background-position: $position-booklet;
-  }
-}
-
-//MEDIA SMALLER THAN 600PX
-
-@media all and (max-width: 600px) {
-
-  $position-booklet: -629px -327px;
-  $position-rat: -578px -935px;
-  $position-betty: -467px -1536px;
-  $position-snow: -1220px -834px;
-  $position-djnm: -1079px -1540px;
-  $position-ships: -1858px -1408px;
-  $position-wat: -1724px -760px;
+@media all and (max-width: 780px) {
 
   .home {
     font-size: 40px;
@@ -531,7 +522,7 @@ $position-wat: -1703px -725px;
   }
 
   .art-hero {
-    .art-title {
+    .art-header {
       top: 80%;
       left: 46%;
       .art-title-text {
@@ -1171,8 +1162,14 @@ header.has-featured-image {
 }
 
 #page-footer {
-  border-top: 3px solid #dddddd;
+  //border-top: 3px solid #dddddd;
   margin-top: 50px;
+  .logo {
+    width: 100px;
+  }
+  a {
+    color: #00A3FC;
+  }
 }
 
 @include mobile() {

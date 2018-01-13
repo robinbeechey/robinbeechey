@@ -1,8 +1,10 @@
 import React from "react";
 import {RichText} from "prismic-reactjs";
 import Layout from "./_layout";
+import HireMe from './HireMe';
 import Hero from './Home/Hero';
 import { Carousel } from 'react-responsive-carousel';
+
 
 const Scroller = ({projects}) => {
 
@@ -115,7 +117,7 @@ class Homepage extends React.Component {
 
 
         return (
-            <div>
+            <Layout>
                 <Hero page={page} circleClick={this.circleClick.bind(this)}/>
 
 
@@ -204,7 +206,8 @@ class Homepage extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+                <HireMe page={page}/>
+            </Layout>
         )
     }
 }

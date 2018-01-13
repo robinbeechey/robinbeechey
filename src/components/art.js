@@ -1,5 +1,35 @@
 import React, { Component } from 'react';
 import {RichText} from "prismic-reactjs";
+import Layout from "./_layout";
+import HireMe from './HireMe';
+
+const Scroller = ({projects}) => {
+    return (
+        <div className="columns is-variable is-6">
+            {
+                projects.map((project, index)=> {
+                    return (
+                        <div className="column is-three-fifths is-offset-one-fifth" key={index}>
+
+                            <div className="showcase">
+                                <img src={project.image && project.image.url}/>
+                                <div className="little-line"></div>
+                            </div>
+
+                            <div className="showcase-info">
+                                <p className="person">{project.name && project.name[0].text}</p>
+                                <p>{project.description && project.description[0].text}</p>
+                            </div>
+                        </div>
+
+                    )
+                })
+            }
+        </div>
+    )
+};
+
+
 
 
 class Art extends Component {
@@ -17,7 +47,7 @@ class Art extends Component {
         }
 
         return (
-            <div>
+            <Layout>
                 <div id="art-hero" className="art-hero">
                     <div className="hero is-fullheight"
                          style={{ background: `url(${page.hero_one && page.hero_one.url}) no-repeat center`, backgroundSize: 'cover', backgroundPosition: "11% 4%"}}>
@@ -26,20 +56,26 @@ class Art extends Component {
                     <div className="hero is-fullheight hero-two"
                          style={{ background: `url(${page.hero_two && page.hero_two.url}) no-repeat center`, backgroundSize: 'cover', backgroundPosition: "11% 4%"}}>
                     </div>
-                    <div className="art-title">
+                    <div className="art-header">
                         <p className="art-title-text">{page.content && page.content[0].text}</p>
                         <h3 className="me">by Robin Beechey</h3>
                     </div>
-                    <div className="circle-down-animated"></div>
                 </div>
-                <div id="art-showcase" className="showcase section">
-                    <div className="columns">
-                        <div className="column is-half is-offset-one-quarter">
-                            <div><h1>About Me</h1><p>asdfasdf</p></div>
+
+                <div className="container art-showcase">
+                    <div className="section">
+                        <div className="art-title">
+                            <h1>The People</h1>
+                            <p>Show us some love at ig:&nbsp;
+                            <a target="_blank" href="https://www.instagram.com/rbportraits/"
+                               aria-hidden="true">@rbportraits</a>
+                            </p>
                         </div>
+                        <Scroller projects={page.showcase}/>
                     </div>
                 </div>
-            </div>
+                <HireMe page={page}/>
+            </Layout>
         )
     }
 

@@ -60,6 +60,7 @@ const STYLES = [
 
 ];
 
+
 class Hero extends Component {
 
     componentDidMount() {
@@ -109,7 +110,8 @@ class Hero extends Component {
 
         return (
             <section ref="home" id="home" className="hero is-fullheight">
-                <div id="links" ref="linksWrapper" className="section links-wrapper">
+
+                <div id="links" className="section links-wrapper">
                     <div ref="links" className="columns links is-mobile is-centered">
                         <div className="column">
                             <a target="_blank" href="https://angel.co/robin-beechey"
@@ -145,10 +147,9 @@ class Hero extends Component {
                                className="fa fa-shopping-cart"
                                aria-hidden="true"/>
                         </div>
-
-
                     </div>
                 </div>
+
                 <div className="hero-body">
                     <div ref="logoWrapper" className="container logo-wrapper">
                         <svg ref="logo" className="rb-logo" xmlns="http://www.w3.org/2000/svg"
