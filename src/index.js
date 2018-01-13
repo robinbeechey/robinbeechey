@@ -29,9 +29,7 @@ ReactDOM.render(
                 <Route exact path={'/'} render={() => {
                   return <Wrapper match={{params: {type: 'homepage'}}}/>
                 }}/>
-                <Route exact path={'/art'} render={() => {
-                  return <Wrapper match={{params: {type: 'art'}}}/>
-                }}/>
+
                 <Route exact path={'/:type'} component={Wrapper}/>
                 <Route exact path={'/:type/:uid'} component={Wrapper}/>
             </div>
