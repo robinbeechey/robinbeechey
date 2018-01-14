@@ -66,9 +66,9 @@ class Art extends Component {
                     <div className="section">
                         <div className="art-title">
                             <h1>The People</h1>
-                            <p>Show us some love at ig:&nbsp;
-                            <a target="_blank" href="https://www.instagram.com/rbportraits/"
-                               aria-hidden="true">@rbportraits</a>
+                            <p>Show us some love on ig:&nbsp;
+                            <a target="_blank" href={`https://www.instagram.com/${page.ig_link && page.ig_link[0].text}/`}
+                               aria-hidden="true">@{page.ig_link && page.ig_link[0].text}</a>
                             </p>
                         </div>
                         <Scroller projects={page.showcase}/>
